@@ -1,9 +1,9 @@
-package ${basePackage}.controller;
-import ${basePackage}.common.core.Result;
-import ${basePackage}.common.core.ResultGenerator;
-import ${basePackage}.entity.${modelNameUpperCamel};
-import ${basePackage}.service.${modelNameUpperCamel}Service;
-import ${basePackage}.mapper.${modelNameUpperCamel}Mapper;
+package com.mlink.base.controller;
+import com.mlink.base.common.core.Result;
+import com.mlink.base.common.core.ResultGenerator;
+import com.mlink.base.entity.Test;
+import com.mlink.base.service.TestService;
+import com.mlink.base.mapper.TestMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,23 +23,23 @@ import io.swagger.annotations.ApiResponses;
 
 
 /**
-* Created by ${author} on ${date}.
+* Created by fudazhi on 2018/07/17.
 */
-@Api(value="${modelNameUpperCamel} ",tags={"${baseRequestMapping}"})
+@Api(value="Test ",tags={"Test"})
 @RestController
-@RequestMapping("${baseRequestMapping}")
-public class ${modelNameUpperCamel}Controller {
+@RequestMapping("Test")
+public class TestController {
     @Resource
-    private ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
+    private TestService testService;
     @Autowired(required = false)
-    private ${modelNameUpperCamel}Mapper ${modelNameUpperCamel}Mapper;
+    private TestMapper TestMapper;
 
 
-    @ApiOperation(value = "添加${modelNameUpperCamel}实体")
+    @ApiOperation(value = "添加Test实体")
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
     @PostMapping("/add")
-    public Result add(@RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel}) {
-        ${modelNameUpperCamel}Mapper.insert(${modelNameLowerCamel});
+    public Result add(@RequestBody Test test) {
+        TestMapper.insert(test);
         return ResultGenerator.genSuccessResult();
     }
 
@@ -47,29 +47,29 @@ public class ${modelNameUpperCamel}Controller {
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
     @GetMapping("/delete")
     public Result delete(@RequestParam String id) {
-        ${modelNameUpperCamel}Mapper.deleteByPrimaryKey(id);
+        TestMapper.deleteByPrimaryKey(id);
         return ResultGenerator.genSuccessResult();
     }
 
 
 
     @ApiOperation(value = "根据主键查询主键 对象")
-    @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=${modelNameUpperCamel}.class)})
+    @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Test.class)})
     @GetMapping("/detail")
     public Result detail(@RequestParam String id) {
-        ${modelNameUpperCamel} ${modelNameLowerCamel} = ${modelNameUpperCamel}Mapper.selectByPrimaryKey(id);
-        return ResultGenerator.genSuccessResult(${modelNameLowerCamel});
+        Test test = TestMapper.selectByPrimaryKey(id);
+        return ResultGenerator.genSuccessResult(test);
     }
 
 
     @ApiOperation(value = "查询全部")
-    @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=${modelNameUpperCamel}.class)})
+    @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Test.class)})
     @GetMapping("/queryAll")
     public Result queryAll(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
-        List<${modelNameUpperCamel}> list;
+        List<Test> list;
 
-        list = ${modelNameUpperCamel}Mapper.selectAll();
+        list = TestMapper.selectAll();
 
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
