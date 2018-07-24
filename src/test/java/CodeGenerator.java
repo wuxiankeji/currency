@@ -5,9 +5,7 @@ import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.*;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -19,7 +17,7 @@ public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
 
 
-    private static final String JDBC_URL = "jdbc:mysql://47.93.228.207:3306/kzjy?useUnicode=true&characterEncoding=UTF-8";
+    private static final String JDBC_URL = "jdbc:mysql://47.93.228.207:3306/qinghui?useUnicode=true&characterEncoding=UTF-8";
     private static final String JDBC_USERNAME = "dazhifu";
     private static final String JDBC_PASSWORD = "123456";
 //    private static final String JDBC_URL = "jdbc:mysql://47.93.228.207:3306/kzjy?useUnicode=true&characterEncoding=UTF-8";
@@ -47,84 +45,90 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-//        String a= ProjectConstant.CCBIPADDRESS;
-
-//        genModel("GSDATA_ARTICLES");
-//        genModelAndMapper("RESCUE_BANK_INFO",null);
-//mapperLocations
-
-//        genCode("RESCUE_CUSTOMER_SERVICE");
-        String aa=PACKAGE_PATH_ENTITY;
-        genCodeCover("test");
-//        genCode("GSDATA_ARTICLES");
-//
-
-//        genCode("RESCUE_ACTION");
-////        genCode("RESCUE_PAY");
-//        genCode("RESCUE_PRODUCT");
-//        genCode("RESCUE_WX_INFO");
-        //genCodeByCustomModelName("输入表名","输入自定义Model名称");
 
 
+        genCode("test","测试类");
+
+         // 只生成model,MAPPER
+//        genModelAndMapper(String tableName, String describe)
     }
 
     /**
-     * 不会覆盖mapper xml
-     * 通过数据表名称生成代码，Model 名称通过解析数据表名称获得，下划线转大驼峰的形式。
-     * 如输入表名称 "t_user_detail" 将生成 TUserDetail、TUserDetailMapper、TUserDetailService ...
-     * @param tableNames 数据表名称...
+     * 生成entity、mapper、constroller，server、
+     * @param tableName 数据表名称,
+     *        describe 类描述
      */
-    public static void genCode(String... tableNames) {
-        for (String tableName : tableNames) {
-            genCodeByCustomModelName(tableName,null,false);
-        }
+    public static void genCode(String tableName,String describe) {
+        genCodeByCustomModelName(tableName,null,true, describe);
     }
     /**
-     * 会自动覆盖mapper xml
-     * 通过数据表名称生成代码，entity 名称通过解析数据表名称获得，下划线转大驼峰的形式。
-     * 如输入表名称 "t_user_detail" 将生成 TUserDetail、TUserDetailMapper、TUserDetailService ...
-     * @param tableNames 数据表名称...
+     * 生成entity、mapper、constroller，server、
+     * @param tableName 数据表名称
+     *        mapprIsCover 是否覆盖  true 覆盖false不覆盖
+     *        describe 类描述
      */
-    public static void genCodeCover(String... tableNames) {
-        for (String tableName : tableNames) {
-            genCodeByCustomModelName(tableName,null,true);
-        }
+    public static void genCode(String tableName,boolean mapprIsCover,String describe) {
+        genCodeByCustomModelName(tableName,null,mapprIsCover, describe);
+    }
+    /**
+     * 生成entity、mapper、constroller，server、
+     * @param tableName 数据表名称
+     *        modelName 表别名
+     *        mapprIsCover 是否覆盖  true 覆盖false不覆盖
+     *        describe 类描述
+     */
+    public static void genCode(String tableName, String modelName, boolean mapprIsCover,String describe) {
+        genCodeByCustomModelName(tableName,modelName,mapprIsCover, describe);
     }
 
 
+    /**
+     * 生成entity、mapper、
+     * @param tableName 数据表名称,
+     *        describe 类描述
+     */
+    void genModelAndMapper(String tableName, String describe) {
+        genModelAndMapper(tableName,null, true,describe);
+    }
+
+    /**
+     * 生成entity、mapper、
+     * @param tableName 数据表名称,
+     *       mapprIsCover 是否覆盖  true 覆盖false不覆盖
+     *        describe 类描述
+     */
+    void genModelAndMapper(String tableName, boolean mapprIsCover, String describe) {
+        genModelAndMapper(tableName,null, mapprIsCover,describe);
+    }
 
     /**
      * 通过数据表名称，和自定义的 Model 名称生成代码
      * 如输入表名称 "t_user_detail" 和自定义的 Model 名称 "User" 将生成 User、UserMapper、UserService ...
      * @param tableName 数据表名称
      * @param modelName 自定义的 Model 名称
+     *       mapprIsCover 是否覆盖
+     *       describe     类描述
      */
-    public static void genCodeByCustomModelName(String tableName, String modelName,boolean mapprIsCover) {
-        genModelAndMapper(tableName, modelName,mapprIsCover);
+    public static void genCodeByCustomModelName(String tableName, String modelName,boolean mapprIsCover, String describe) {
+        genModelAndMapper(tableName, modelName,mapprIsCover,describe);
         genService(tableName, modelName);
         genController(tableName, modelName);
     }
 
 
-   // mapprIscover mapper是否覆盖
-    public static void genModelAndMapper(String tableName, String modelName,boolean mapprIsCover) {
-
+   // mapprIscover mapper是否覆盖  describe：类描述
+    public static void genModelAndMapper(String tableName, String modelName,boolean mapprIsCover, String describe) {
+        String modelNameUpperCamel = isEmpty(modelName) ? tableNameConvertUpperCamel(tableName) : modelName;
         if(mapprIsCover == true) {
-            String modelNameUpperCamel = isEmpty(modelName) ? tableNameConvertUpperCamel(tableName) : modelName;
+
             File file = new File(PROJECT_PATH + JAVA_PATH + packageConvertPath(PACKAGE_PATH_MAPPER) + modelNameUpperCamel + "Mapper.xml");
             if (file.getParentFile().exists()) {
                 file.delete();
             }
         }
         Context context = new Context(ModelType.FLAT);
-        context.setId("Potato");
+        context.setId("mlimk");
         context.setTargetRuntime("MyBatis3Simple");
-        context.addProperty(PropertyRegistry.CONTEXT_BEGINNING_DELIMITER, "`");
-        context.addProperty(PropertyRegistry.CONTEXT_ENDING_DELIMITER, "`");
-        context.addProperty(PropertyRegistry.COMMENT_GENERATOR_SUPPRESS_ALL_COMMENTS, "false");
-        context.addProperty(PropertyRegistry.COMMENT_GENERATOR_ADD_REMARK_COMMENTS, "true");
-        context.addProperty(PropertyRegistry.COMMENT_GENERATOR_SUPPRESS_DATE, "true");
-        context.addProperty(PropertyRegistry.CONTEXT_JAVA_FILE_ENCODING, "UTF-8");
 
 
         JDBCConnectionConfiguration jdbcConnectionConfiguration = new JDBCConnectionConfiguration();
@@ -160,14 +164,24 @@ public class CodeGenerator {
         MyBatisGenerator generator;
         try {
             Configuration config = new Configuration();
+
+
             config.addContext(context);
+            CommentGeneratorConfiguration commentGeneratorConfiguration = new CommentGeneratorConfiguration();
+            commentGeneratorConfiguration.addProperty(PropertyRegistry.COMMENT_GENERATOR_ADD_REMARK_COMMENTS,"true");
+            commentGeneratorConfiguration.addProperty(PropertyRegistry.COMMENT_GENERATOR_SUPPRESS_ALL_COMMENTS, "false");
+            commentGeneratorConfiguration.addProperty(PropertyRegistry.COMMENT_GENERATOR_ADD_REMARK_COMMENTS, "true");
+//            commentGeneratorConfiguration.addProperty(PropertyRegistry.COMMENT_GENERATOR_SUPPRESS_DATE, "true");
+            commentGeneratorConfiguration.addProperty(PropertyRegistry.CONTEXT_JAVA_FILE_ENCODING, "UTF-8");
+            commentGeneratorConfiguration.addProperty(PropertyRegistry.COMMENT_GENERATOR_AUTHOR, "mlink");
+
+            context.setCommentGeneratorConfiguration(commentGeneratorConfiguration);
             config.validate();
 
             boolean overwrite = true;
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);
             warnings = new ArrayList<String>();
             generator = new MyBatisGenerator(config, callback, warnings);
-
             generator.generate(null);
         } catch (Exception e) {
             throw new RuntimeException("生成Model和Mapper失败", e);
@@ -178,6 +192,49 @@ public class CodeGenerator {
             throw new RuntimeException("生成Model和Mapper失败：" + warnings);
         }
         if (StringUtils.isEmpty(modelName)) modelName = tableNameConvertUpperCamel(tableName);
+
+        // 添加类说明
+        File file = new File(PROJECT_PATH + JAVA_PATH + packageConvertPath(PACKAGE_PATH_ENTITY) + modelNameUpperCamel + ".java");
+        if (file.getParentFile().exists() && describe != null) {
+            StringBuffer stringBuffer  =  new StringBuffer();
+            List<String> list = new ArrayList<String>();
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(file);
+                // 防止路径乱码   如果utf-8 乱码  改GBK     eclipse里创建的txt  用UTF-8，在电脑上自己创建的txt  用GBK
+                InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+                BufferedReader br = new BufferedReader(isr);
+                String line = "";
+                while ((line = br.readLine()) != null) {
+                    if(line.contains("@ApiModel(")) {
+                        stringBuffer.append("@ApiModel(value =\""+describe+"\")"+"\n");
+                    } else {
+                        stringBuffer.append(line+"\n");
+                    }
+
+
+                }
+                br.close();
+                isr.close();
+                fis.close();
+
+                FileWriter writer;
+                writer = new FileWriter(file);
+                writer.write(stringBuffer.toString());
+                writer.flush();
+                writer.close();
+
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
         System.out.println(modelName + ".java 生成成功");
         System.out.println(modelName + "Mapper.java 生成成功");
         System.out.println(modelName + "Mapper.xml 生成成功");

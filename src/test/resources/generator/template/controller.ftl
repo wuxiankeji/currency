@@ -38,7 +38,7 @@ public class ${modelNameUpperCamel}Controller {
     @ApiOperation(value = "添加${modelNameUpperCamel}实体")
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
     @PostMapping("/add")
-    public Result add(@RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel}) {
+    public Result add(@ApiParam (value="${modelNameUpperCamel} json对象") @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel}) {
         ${modelNameUpperCamel}Mapper.insert(${modelNameLowerCamel});
         return ResultGenerator.genSuccessResult();
     }
@@ -46,7 +46,7 @@ public class ${modelNameUpperCamel}Controller {
     @ApiOperation(value = "根据主键删除对象")
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
     @GetMapping("/delete")
-    public Result delete(@RequestParam String id) {
+    public Result delete(@ApiParam (value="主键id") @RequestParam String id) {
         ${modelNameUpperCamel}Mapper.deleteByPrimaryKey(id);
         return ResultGenerator.genSuccessResult();
     }
@@ -56,7 +56,7 @@ public class ${modelNameUpperCamel}Controller {
     @ApiOperation(value = "根据主键查询主键 对象")
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=${modelNameUpperCamel}.class)})
     @GetMapping("/detail")
-    public Result detail(@RequestParam String id) {
+    public Result detail(@ApiParam (value="主键id") @RequestParam String id) {
         ${modelNameUpperCamel} ${modelNameLowerCamel} = ${modelNameUpperCamel}Mapper.selectByPrimaryKey(id);
         return ResultGenerator.genSuccessResult(${modelNameLowerCamel});
     }
@@ -65,7 +65,8 @@ public class ${modelNameUpperCamel}Controller {
     @ApiOperation(value = "查询全部")
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=${modelNameUpperCamel}.class)})
     @GetMapping("/queryAll")
-    public Result queryAll(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
+    public Result queryAll(@ApiParam (value="请求第几页") @RequestParam(defaultValue = "0") Integer page,
+                           @ApiParam (value="每页个数") @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
         List<${modelNameUpperCamel}> list;
 

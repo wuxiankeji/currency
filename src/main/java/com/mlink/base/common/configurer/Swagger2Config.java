@@ -33,14 +33,14 @@ public class Swagger2Config extends WebMvcConfigurerAdapter {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.mlink.base"))
+                .apis(RequestHandlerSelectors.basePackage("com."))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("UAC-接口")
+                .title("接口文档")
                 .version("1.0")
                 .build();
     }

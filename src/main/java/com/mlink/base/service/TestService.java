@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by fudazhi on 2018/07/17.
+ * Created by fudazhi on 2018/07/24.
  * 注:  需要回归接口添加 注解 ：@Transactional(rollbackFor = Exception.class)
  */
 
