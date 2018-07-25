@@ -16,13 +16,13 @@ import java.util.*;
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
 
-
     private static final String JDBC_URL = "jdbc:mysql://xx.xx.xx.xx:3306/qinghui?useUnicode=true&characterEncoding=UTF-8";
     private static final String JDBC_USERNAME = "xx";
     private static final String JDBC_PASSWORD = "xx";
 
-
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
+    // 包名需要根据实际进行配置
+    private static final String BASE_PACKAGE ="com.mlink.base";
 
 
     private static final String PROJECT_PATH = System.getProperty("user.dir")+"/";//项目在硬盘上的基础路径
@@ -30,7 +30,6 @@ public class CodeGenerator {
 
     private static final String JAVA_PATH = "src/main/java"; //java文件路径
 
-    private static final String BASE_PACKAGE ="com.mlink.base";
 
     private static final String PACKAGE_PATH_ENTITY = BASE_PACKAGE + ".entity";
     private static final String PACKAGE_PATH_MAPPER =  BASE_PACKAGE + ".mapper";
