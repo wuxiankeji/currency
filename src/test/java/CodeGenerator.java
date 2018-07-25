@@ -17,16 +17,12 @@ public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
 
 
-    private static final String JDBC_URL = "jdbc:mysql://47.93.228.207:3306/qinghui?useUnicode=true&characterEncoding=UTF-8";
-    private static final String JDBC_USERNAME = "dazhifu";
-    private static final String JDBC_PASSWORD = "123456";
-//    private static final String JDBC_URL = "jdbc:mysql://47.93.228.207:3306/kzjy?useUnicode=true&characterEncoding=UTF-8";
-//    private static final String JDBC_USERNAME = "dazhifu";
-//    private static final String JDBC_PASSWORD = "123456";
+    private static final String JDBC_URL = "jdbc:mysql://xx.xx.xx.xx:3306/qinghui?useUnicode=true&characterEncoding=UTF-8";
+    private static final String JDBC_USERNAME = "xx";
+    private static final String JDBC_PASSWORD = "xx";
+
 
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-
-
 
 
     private static final String PROJECT_PATH = System.getProperty("user.dir")+"/";//项目在硬盘上的基础路径

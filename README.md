@@ -28,7 +28,7 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，
    spring.datasource.password  ：数据库密码
    spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 
-3、配置代码生成工具 src/test/CodeGenerator.java。JDBC_URL：数据库url  JDBC_USERNAME ：数据库用户名  JDBC_PASSWORD ：数据库密码
+3、配置代码生成工具 src/test/CodeGenerator.java。JDBC_URL：数据库url  JDBC_USERNAME ：数据库用户名  JDBC_PASSWORD ：数据库密码。 配置包名：BASE_PACKAGE ="com.mlink.base"
 6. 输入表名，运行```CodeGenerator.main()```方法，生成基础代码（可能需要刷新项目目录才会出来）
 7. 根据业务在基础代码上进行扩展
 5. 对开发环境配置文件```application-dev.properties```进行配置，启动项目，Have Fun！
@@ -40,7 +40,11 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，
 - 需要工具类的话建议先从```apache-commons-*```和```guava```中找，实在没有再造轮子或引入类库，尽量精简项目
 - 开发规范建议遵循阿里巴巴Java开发手册（[最新版下载](https://github.com/lihengming/java-codes/blob/master/shared-resources/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8CV1.3.0.pdf))
 - 建议在公司内部使用[ShowDoc](https://github.com/star7th/showdoc)、[SpringFox-Swagger2](https://github.com/springfox/springfox) 、[RAP](https://github.com/thx/RAP)等开源项目来编写、管理API文档
- 
+
+## 开发建议
+
+- maven打包后会生成 com.mlink.base.zip 和 com.mlink.base.jar  传到服务器解压zip 运行start 即可运行。下次更新只需要更新com.mlink.base.jar即可。
+ 
 ## 技术选型&文档
 - Spring Boot（[查看Spring Boot学习&使用指南](http://www.jianshu.com/p/1a9fd8936bd8)）
 - Spring Boot MyBatis（[查看官方中文文档](http://www.mybatis.org/mybatis-3/zh/index.html)）
