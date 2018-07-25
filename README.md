@@ -21,18 +21,18 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，
 - 集成swagger 自动生成后的代码自动带上了swagger api。对mybatis-generator-core进行了改造，entity 生成也会自带swagger注释。启动后输入http://localhost:8080/swagger-ui.html.查看api文档
 
 ## 快速开始
-1. 克隆项目
-2. idea 直接打开下载的源码，配置springboot 启动
-3、配置 application.properties 数据库配置 
-   spring.datasource.url       ：数据库url
-   spring.datasource.username  ：数据库用户名
-   spring.datasource.password  ：数据库密码
-   spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+1. 克隆项目 <br>
+2. idea 直接打开下载的源码，配置springboot 启动<br>
+3. 配置 application.properties 数据库配置 <br>
+   spring.datasource.url       ：数据库url<br>
+   spring.datasource.username  ：数据库用户名<br>
+   spring.datasource.password  ：数据库密码<br>
+   spring.datasource.driver-class-name=com.mysql.jdbc.Driver<br>
 
-4、配置代码生成工具 src/test/CodeGenerator.java。JDBC_URL：数据库url  JDBC_USERNAME ：数据库用户名  JDBC_PASSWORD ：数据库密码。 配置包名：BASE_PACKAGE ="com.mlink.base"
-5. 输入表名，运行```CodeGenerator.main()```方法，生成基础代码（可能需要刷新项目目录才会出来）
-6. 根据业务在基础代码上进行扩展
-7. 对开发环境配置文件```application-dev.properties```进行配置，启动项目，Have Fun！
+4. 配置代码生成工具 src/test/CodeGenerator.java。JDBC_URL：数据库url  JDBC_USERNAME ：数据库用户名  JDBC_PASSWORD ：数据库密码。 配置包名：BASE_PACKAGE ="com.mlink.base"<br>
+5. 输入表名，运行```CodeGenerator.main()```方法，生成基础代码（可能需要刷新项目目录才会出来）<br>
+6. 根据业务在基础代码上进行扩展<br>
+7. 对开发环境配置文件```application-dev.properties```进行配置，启动项目，Have Fun！<br>
  
 ## 开发建议
 - 表名，多个单词使用下划线拼接mlink_user, 注意：表名是一个单词用小写如 user
