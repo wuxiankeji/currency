@@ -22,16 +22,17 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，
 
 ## 快速开始
 1. 克隆项目
-2、配置 application.properties 数据库配置 
+2. idea 直接打开下载的源码，配置springboot 启动
+3、配置 application.properties 数据库配置 
    spring.datasource.url       ：数据库url
    spring.datasource.username  ：数据库用户名
    spring.datasource.password  ：数据库密码
    spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 
-3、配置代码生成工具 src/test/CodeGenerator.java。JDBC_URL：数据库url  JDBC_USERNAME ：数据库用户名  JDBC_PASSWORD ：数据库密码。 配置包名：BASE_PACKAGE ="com.mlink.base"
-6. 输入表名，运行```CodeGenerator.main()```方法，生成基础代码（可能需要刷新项目目录才会出来）
-7. 根据业务在基础代码上进行扩展
-5. 对开发环境配置文件```application-dev.properties```进行配置，启动项目，Have Fun！
+4、配置代码生成工具 src/test/CodeGenerator.java。JDBC_URL：数据库url  JDBC_USERNAME ：数据库用户名  JDBC_PASSWORD ：数据库密码。 配置包名：BASE_PACKAGE ="com.mlink.base"
+5. 输入表名，运行```CodeGenerator.main()```方法，生成基础代码（可能需要刷新项目目录才会出来）
+6. 根据业务在基础代码上进行扩展
+7. 对开发环境配置文件```application-dev.properties```进行配置，启动项目，Have Fun！
  
 ## 开发建议
 - 表名，多个单词使用下划线拼接mlink_user, 注意：表名是一个单词用小写如 user
@@ -41,7 +42,7 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，
 - 开发规范建议遵循阿里巴巴Java开发手册（[最新版下载](https://github.com/lihengming/java-codes/blob/master/shared-resources/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8CV1.3.0.pdf))
 - 建议在公司内部使用[ShowDoc](https://github.com/star7th/showdoc)、[SpringFox-Swagger2](https://github.com/springfox/springfox) 、[RAP](https://github.com/thx/RAP)等开源项目来编写、管理API文档
 
-## 开发建议
+## 部署
 
 - maven打包后会生成 com.mlink.base.zip 和 com.mlink.base.jar  传到服务器解压zip 运行start 即可运行。下次更新只需要更新com.mlink.base.jar即可。
  
