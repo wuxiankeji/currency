@@ -152,7 +152,7 @@ public class CodeGenerator {
         TableConfiguration tableConfiguration = new TableConfiguration(context);
         tableConfiguration.setTableName(tableName);
         if (isNotEmpty(modelName))tableConfiguration.setDomainObjectName(modelName);
-        tableConfiguration.setGeneratedKey(new GeneratedKey("id", "Mysql", true, null));
+        //tableConfiguration.setGeneratedKey(new GeneratedKey("id", "Mysql", true, null));
         context.addTableConfiguration(tableConfiguration);
 
         List<String> warnings;
