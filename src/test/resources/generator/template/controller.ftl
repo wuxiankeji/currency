@@ -14,7 +14,8 @@ import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 
@@ -26,6 +27,9 @@ import java.util.List;
 @RestController
 @RequestMapping("${baseRequestMapping}")
 public class ${modelNameUpperCamel}Controller {
+    
+     Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Resource
     private ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
     @Autowired(required = false)
