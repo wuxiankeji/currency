@@ -45,7 +45,7 @@ public class CodeGenerator {
         genCode("test","测试类");
 
          // 只生成model,MAPPER
-//        genModelAndMapper(String tableName, String describe)
+//        genModelAndMapper("survey_wx_user",null, true, "测试类");
     }
 
     /**
