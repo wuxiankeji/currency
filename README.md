@@ -45,7 +45,11 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，
 ## 部署
 
 - maven打包后会生成 com.mlink.base.zip 和 com.mlink.base.jar  传到服务器解压zip 运行start 即可运行。下次更新只需要更新com.mlink.base.jar即可。
- 
+- 如修改包名请记得修改
+    <groupId>com.mlink.video</groupId>
+    <artifactId>com.mlink.video</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  否则打包出错
 ## 技术选型&文档
 - Spring Boot（[查看Spring Boot学习&使用指南](http://www.jianshu.com/p/1a9fd8936bd8)）
 - Spring Boot MyBatis（[查看官方中文文档](http://www.mybatis.org/mybatis-3/zh/index.html)）
