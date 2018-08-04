@@ -44,6 +44,14 @@ public class ${modelNameUpperCamel}Controller {
         return ResultGenerator.genSuccessResult();
     }
 
+    @ApiOperation(value = "更新${modelNameUpperCamel},如自动不传将会更新成null")
+    @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
+    @PostMapping("/update")
+    public Result update(@ApiParam (value="${modelNameUpperCamel} json对象") @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel}) {
+        ${modelNameUpperCamel}Mapper.updateByPrimaryKey(${modelNameLowerCamel});
+        return ResultGenerator.genSuccessResult();
+    }
+
     @ApiOperation(value = "根据主键删除对象")
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
     @GetMapping("/delete")
@@ -51,8 +59,6 @@ public class ${modelNameUpperCamel}Controller {
         ${modelNameUpperCamel}Mapper.deleteByPrimaryKey(id);
         return ResultGenerator.genSuccessResult();
     }
-
-
 
     @ApiOperation(value = "根据主键查询主键 对象")
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=${modelNameUpperCamel}.class)})
