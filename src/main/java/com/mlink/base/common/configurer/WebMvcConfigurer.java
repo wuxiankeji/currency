@@ -57,6 +57,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         config.setSerializerFeatures(SerializerFeature.WriteMapNullValue,//保留空的字段
                 SerializerFeature.WriteNullStringAsEmpty,//String null -> ""
                 SerializerFeature.WriteNullNumberAsZero);//Number null -> 0
+        config.setDateFormat("yyyy-MM-dd HH:mm:ss");
         converter.setFastJsonConfig(config);
         converter.setDefaultCharset(Charset.forName("UTF-8"));
         converters.add(converter);
