@@ -1,5 +1,6 @@
 package ${basePackage}.service;
 import ${basePackage}.entity.${modelNameUpperCamel};
+import ${basePackage}.mapper.${modelNameUpperCamel}Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
