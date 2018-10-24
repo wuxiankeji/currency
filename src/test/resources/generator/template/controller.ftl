@@ -28,19 +28,16 @@ import java.util.List;
 @RequestMapping("${baseRequestMapping}")
 public class ${modelNameUpperCamel}Controller {
     
-     Logger logger = LoggerFactory.getLogger(this.getClass());
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Resource
-    private ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
     @Autowired(required = false)
-    private ${modelNameUpperCamel}Mapper ${modelNameUpperCamel}Mapper;
-
+    private ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
 
     @ApiOperation(value = "添加${modelNameUpperCamel}实体")
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
     @PostMapping("/add")
     public Result add(@ApiParam (value="${modelNameUpperCamel} json对象") @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel}) {
-        ${modelNameUpperCamel}Mapper.insert(${modelNameLowerCamel});
+        ${modelNameLowerCamel}Service.insert(${modelNameLowerCamel});
         return ResultGenerator.genSuccessResult();
     }
 
@@ -48,7 +45,7 @@ public class ${modelNameUpperCamel}Controller {
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
     @PostMapping("/update")
     public Result update(@ApiParam (value="${modelNameUpperCamel} json对象") @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel}) {
-        ${modelNameUpperCamel}Mapper.updateByPrimaryKey(${modelNameLowerCamel});
+        ${modelNameLowerCamel}Service.updateByPrimaryKey(${modelNameLowerCamel});
         return ResultGenerator.genSuccessResult();
     }
 
@@ -56,7 +53,7 @@ public class ${modelNameUpperCamel}Controller {
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
     @GetMapping("/delete")
     public Result delete(@ApiParam (value="主键id") @RequestParam String id) {
-        ${modelNameUpperCamel}Mapper.deleteByPrimaryKey(id);
+        ${modelNameLowerCamel}Service.deleteByPrimaryKey(id);
         return ResultGenerator.genSuccessResult();
     }
 
@@ -64,7 +61,7 @@ public class ${modelNameUpperCamel}Controller {
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=${modelNameUpperCamel}.class)})
     @GetMapping("/detail")
     public Result detail(@ApiParam (value="主键id") @RequestParam String id) {
-        ${modelNameUpperCamel} ${modelNameLowerCamel} = ${modelNameUpperCamel}Mapper.selectByPrimaryKey(id);
+        ${modelNameUpperCamel} ${modelNameLowerCamel} = ${modelNameLowerCamel}Service.selectByPrimaryKey(id);
         return ResultGenerator.genSuccessResult(${modelNameLowerCamel});
     }
 
@@ -77,7 +74,7 @@ public class ${modelNameUpperCamel}Controller {
         PageHelper.startPage(page, size);
         List<${modelNameUpperCamel}> list;
 
-        list = ${modelNameUpperCamel}Mapper.selectAll();
+        list = ${modelNameLowerCamel}Service.selectAll();
 
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
