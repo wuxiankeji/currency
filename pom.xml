@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.9.RELEASE</version>
+        <version>1.5.10.RELEASE</version>
     </parent>
 
     <groupId>com.mlink.base</groupId>
@@ -19,6 +19,7 @@
         <!-- dependence versions  -->
         <spring-boot-starter-jdbc.version>1.5.8.RELEASE</spring-boot-starter-jdbc.version>
         <spring-security-web.version>4.2.3.RELEASE</spring-security-web.version>
+        <spring-cloud.version>Dalston.RELEASE</spring-cloud.version>
     </properties>
 
     <dependencies>

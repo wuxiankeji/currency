@@ -41,10 +41,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class MybatisConfig implements TransactionManagementConfigurer {
 
-//    @Value("${mybatis.mapperLocations}")
     private String mapperLocations = "com.**.**.entity";
-//    private String typeAliasesPackage = "classpath:com/mlink/base/mapper/*.xml";
-//    @Value("${mybatis.typeAliasesPackage}")
     private String typeAliasesPackage = "classpath:com/**/**/mapper/*.xml";
 
     @Autowired
