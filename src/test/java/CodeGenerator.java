@@ -16,9 +16,9 @@ import java.util.*;
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
 
-    private static final String JDBC_URL = "jdbc:mysql://47.104.172.218:3306/material?useUnicode=true&characterEncoding=UTF-8";
-    private static final String JDBC_USERNAME = "root";
-    private static final String JDBC_PASSWORD = "4e3w4s3a";
+    private static final String JDBC_URL = "jdbc:mysql://xx.xxx.xxx.xxx:3306/xxx?useUnicode=true&characterEncoding=UTF-8";
+    private static final String JDBC_USERNAME = "xxxx";
+    private static final String JDBC_PASSWORD = "xxxxxx";
 
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
     // 包名需要根据实际进行配置
