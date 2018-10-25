@@ -47,52 +47,44 @@ pringfox:
       v2:
         path: /api-docs
 
-##服务器发现注册配置
-#eureka:
-#  client:
-#    serviceUrl:
-#      #配置服务中心(可配置多个,用逗号隔开)
-#      defaultZone: http://localhost:9980/eureka/
-#    #eureka client刷新本地缓存时间
-#    registryFetchIntervalSeconds: 5
-#  #将swagger页面,集成到到eureka中心
-#  instance:
-#    status-page-url: http://localhost:${server.port}/swagger-ui.html
-#    #服务过期时间配置,超过这个时间没有接收到心跳EurekaServer就会将这个实例剔除
-#    #注意，EurekaServer一定要设置eureka.server.eviction-interval-timer-in-ms否则这个配置无效，这个配置一般为服务刷新时间配置的三倍
-#    lease-expiration-duration-in-seconds: 15
-#    #服务刷新时间配置，每隔这个时间会主动心跳一次
-#    lease-renewal-interval-in-seconds: 5
-#
-##安全配置(开发阶段注释,集成阶段打开)
-#security:
-#  oauth2:
-#    resource:
-#      id: ${spring.application.name}
-#      user-info-uri: http://localhost:9983/user
-#      prefer-token-info: false
-#
-##feign开启降级服务
-#feign:
-#  hystrix:
-#    enabled: true
-#
-##ribbon   开启Ribbon的饥饿加载模式
-#ribbon:
-#  eager-load:
-#    enabled: true
-#    #指定需要饥饿加载的客户端名称、服务名
-#    clients: user-service
-#  #eureka客户端ribbon刷新时间
-#  ServerListRefreshInterval: 5000
-#
-##hystrix    熔断服务 转发等待时长
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 60000
+#服务器发现注册配置
+eureka:
+  client:
+    serviceUrl:
+      #配置服务中心(可配置多个,用逗号隔开)
+      defaultZone: http://localhost:9980/eureka/
+    #eureka client刷新本地缓存时间
+    registryFetchIntervalSeconds: 5
+  #将swagger页面,集成到到eureka中心
+  instance:
+    status-page-url: http://localhost:${server.port}/swagger-ui.html
+    #服务过期时间配置,超过这个时间没有接收到心跳EurekaServer就会将这个实例剔除
+    #注意，EurekaServer一定要设置eureka.server.eviction-interval-timer-in-ms否则这个配置无效，这个配置一般为服务刷新时间配置的三倍
+    lease-expiration-duration-in-seconds: 15
+    #服务刷新时间配置，每隔这个时间会主动心跳一次
+    lease-renewal-interval-in-seconds: 5
+
+#feign开启降级服务
+feign:
+  hystrix:
+    enabled: true
+
+#ribbon   开启Ribbon的饥饿加载模式
+ribbon:
+  eager-load:
+    enabled: true
+    #指定需要饥饿加载的客户端名称、服务名
+    clients: user-service
+  #eureka客户端ribbon刷新时间
+  ServerListRefreshInterval: 5000
+
+#hystrix    熔断服务 转发等待时长
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
 
 
