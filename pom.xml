@@ -197,7 +197,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>${project.artifactId}.Application</mainClass>
+                            <mainClass>com.mlink.base.Application</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
