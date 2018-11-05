@@ -51,12 +51,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--热部署-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
+
         <!--常用库依赖-->
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -137,11 +132,11 @@
         <scope>test</scope>
         </dependency>
         <!-- 修改mybatis.generator 集成自动生成 mybatis-swager -->
-        <dependency>
-            <groupId>com.mlink.lib</groupId>
-            <artifactId>mybatis-swager</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.mlink.lib</groupId>-->
+            <!--<artifactId>mybatis-swager</artifactId>-->
+            <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
 
         <!-- swagger -->
         <dependency>
