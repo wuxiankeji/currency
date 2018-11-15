@@ -19,7 +19,6 @@ public class MaterialService  {
     @Autowired(required = false)
     private MaterialMapper materialMapper;
 
-
     public void insert(Material material) {
         material.setMaterialId(Utils.getUUID());
         materialMapper.insert(material);
