@@ -1,12 +1,10 @@
 package com.mlink.base.service;
-
-import com.mlink.base.common.utils.Utils;
 import com.mlink.base.entity.Material;
 import com.mlink.base.mapper.MaterialMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 /**
 * Created by fudazhi on 2018/10/24.
@@ -20,7 +18,6 @@ public class MaterialService  {
     private MaterialMapper materialMapper;
 
     public void insert(Material material) {
-        material.setMaterialId(Utils.getUUID());
         materialMapper.insert(material);
     }
 

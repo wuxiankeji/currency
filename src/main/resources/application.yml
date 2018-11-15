@@ -14,14 +14,13 @@ spring:
     name: base-service
   #数据库配置
   datasource:
-    url: jdbc:mysql://47.104.172.218:3306/material?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: 4e3w4s3a
+    url: jdbc:mysql://xx.xxx.xxx.xxx:3306/xxx?useUnicode=true&characterEncoding=UTF-8
+    username: xxxx
+    password: xxxxx
     driver-class-name: com.mysql.jdbc.Driver
   #redis
   redis:
-    #host: 127.0.0.1
-    host: 47.104.172.218
+    host: 127.0.0.1
     port: 6379
     password: 123456
   #404交给异常处理器处理
@@ -64,14 +63,6 @@ pringfox:
 #    lease-expiration-duration-in-seconds: 15
 #    #服务刷新时间配置，每隔这个时间会主动心跳一次
 #    lease-renewal-interval-in-seconds: 5
-#
-##安全配置(开发阶段注释,集成阶段打开)
-#security:
-#  oauth2:
-#    resource:
-#      id: ${spring.application.name}
-#      user-info-uri: http://localhost:9983/user
-#      prefer-token-info: false
 #
 ##feign开启降级服务
 #feign:

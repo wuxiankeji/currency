@@ -16,9 +16,9 @@ import java.util.*;
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
 
-    private static final String JDBC_URL = "jdbc:mysql://47.104.172.218:3306/material?useUnicode=true&characterEncoding=UTF-8";
-    private static final String JDBC_USERNAME = "root";
-    private static final String JDBC_PASSWORD = "4e3w4s3a";
+    private static final String JDBC_URL = "jdbc:mysql://xx.xxx.xxx.xxx:3306/xxxx?useUnicode=true&characterEncoding=UTF-8";
+    private static final String JDBC_USERNAME = "xxxx";
+    private static final String JDBC_PASSWORD = "xxxxxxx";
 
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
     // 包名需要根据实际进行配置
@@ -42,7 +42,7 @@ public class CodeGenerator {
     public static void main(String[] args) {
 
 
-        genCode("material","测试类");
+        //genCode("user","测试类");
 
          // 只生成model,MAPPER
 //        genModelAndMapper("survey_wx_user",null, true, "测试类");
@@ -168,7 +168,7 @@ public class CodeGenerator {
             commentGeneratorConfiguration.addProperty(PropertyRegistry.COMMENT_GENERATOR_ADD_REMARK_COMMENTS, "true");
 //            commentGeneratorConfiguration.addProperty(PropertyRegistry.COMMENT_GENERATOR_SUPPRESS_DATE, "true");
             commentGeneratorConfiguration.addProperty(PropertyRegistry.CONTEXT_JAVA_FILE_ENCODING, "UTF-8");
-            commentGeneratorConfiguration.addProperty(PropertyRegistry.COMMENT_GENERATOR_AUTHOR, "mlink");
+            //commentGeneratorConfiguration.addProperty(PropertyRegistry.COMMENT_GENERATOR_AUTHOR, "mlink");
 
             context.setCommentGeneratorConfiguration(commentGeneratorConfiguration);
             config.validate();

@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * 实体类对应的数据表为：  material
  * @author mlink
- * @date 2018-10-24 17:09:00
+ * @date 2018-10-24 21:04:37
  */
 @ApiModel(value ="测试类")
 public class Material {
