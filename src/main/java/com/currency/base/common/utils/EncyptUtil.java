@@ -1,4 +1,4 @@
-package com.mlink.base.common.utils;
+package com.currency.base.common.utils;
 
 import org.apache.commons.lang3.StringUtils;
 

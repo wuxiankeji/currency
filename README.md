@@ -1,7 +1,7 @@
 ![Licence](https://img.shields.io/badge/licence-none-green.svg)
 
 ## 下载地址
-https://gitee.com/fdz/mlink_basic_framework.git
+https://github.com/wuxiankeji/general_framework.git
 
 ## 简介
 Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，用于快速构建中小型API、RESTful API项目，该脚手架已经有过多个真实项目的实践，稳定、简单、快速，使我们摆脱那些重复劳动，专注于业务代码的编写，减少加班。
@@ -35,8 +35,8 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，
 7. 对开发环境配置文件```application-dev.properties```进行配置，启动项目，Have Fun！<br>
  
 ## 开发建议
-- 表名，多个单词使用下划线拼接mlink_user, 注意：表名是一个单词用小写如 user
-- 类名，建议使用大写开头，MlinkUser
+- 表名，多个单词使用下划线拼接test_user, 注意：表名是一个单词用小写如 user
+- 类名，建议使用大写开头，User
 - 建议业务失败直接使用```ServiceException("message")```抛出，由统一异常处理器来封装业务失败的响应结果，比如```throw new ServiceException("该手机号已被注册")```，会直接被封装为```{"code":400,"message":"该手机号已被注册"}```返回，无需自己处理，尽情抛出
 - 需要工具类的话建议先从```apache-commons-*```和```guava```中找，实在没有再造轮子或引入类库，尽量精简项目
 - 开发规范建议遵循阿里巴巴Java开发手册（[最新版下载](https://github.com/lihengming/java-codes/blob/master/shared-resources/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8CV1.3.0.pdf))

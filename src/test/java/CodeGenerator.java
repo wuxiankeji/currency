@@ -22,7 +22,7 @@ public class CodeGenerator {
 
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
     // 包名需要根据实际进行配置
-    private static final String BASE_PACKAGE ="com.mlink.base";
+    private static final String BASE_PACKAGE ="com.currency.base";
 
 
     private static final String PROJECT_PATH = System.getProperty("user.dir")+"/";//项目在硬盘上的基础路径

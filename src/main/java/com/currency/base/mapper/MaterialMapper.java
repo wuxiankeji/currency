@@ -1,6 +1,6 @@
-package com.mlink.base.mapper;
+package com.currency.base.mapper;
 
-import com.mlink.base.entity.Material;
+import com.currency.base.entity.Material;
 import java.util.List;
 
 public interface MaterialMapper {

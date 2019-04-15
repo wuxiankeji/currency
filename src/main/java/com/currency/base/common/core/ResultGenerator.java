@@ -1,4 +1,4 @@
-package com.mlink.base.common.core;
+package com.currency.base.common.core;
 
 /**
  * 响应结果生成工具

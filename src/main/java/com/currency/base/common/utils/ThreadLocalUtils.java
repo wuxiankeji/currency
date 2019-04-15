@@ -1,4 +1,4 @@
-package com.mlink.base.common.utils;
+package com.currency.base.common.utils;
 
 import java.util.HashMap;
 import java.util.Map;

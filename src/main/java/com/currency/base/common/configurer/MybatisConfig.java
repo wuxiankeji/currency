@@ -1,4 +1,4 @@
-package com.mlink.base.common.configurer;
+package com.currency.base.common.configurer;
 
 import com.github.pagehelper.PageInterceptor;
 import org.apache.commons.lang3.StringUtils;

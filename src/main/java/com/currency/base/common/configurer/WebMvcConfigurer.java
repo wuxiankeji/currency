@@ -1,11 +1,11 @@
-package com.mlink.base.common.configurer;
+package com.currency.base.common.configurer;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.mlink.base.common.core.Result;
-import com.mlink.base.common.core.ResultCode;
+import com.currency.base.common.core.Result;
+import com.currency.base.common.core.ResultCode;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

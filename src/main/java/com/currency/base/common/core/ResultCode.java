@@ -1,4 +1,4 @@
-package com.mlink.base.common.core;
+package com.currency.base.common.core;
 
 /**
  * 响应码枚举，参考HTTP状态码的语义

@@ -1,10 +1,10 @@
-package com.mlink.base.service;
-import com.mlink.base.entity.Material;
-import com.mlink.base.mapper.MaterialMapper;
+package com.currency.base.service;
+import com.currency.base.entity.Material;
+import com.currency.base.mapper.MaterialMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 /**
 * Created by yuehaibin on 2018/10/24.

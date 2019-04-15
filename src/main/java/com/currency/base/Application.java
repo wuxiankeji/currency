@@ -1,4 +1,4 @@
-package com.mlink.base;
+package com.currency.base;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

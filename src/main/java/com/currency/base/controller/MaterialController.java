@@ -1,10 +1,10 @@
-package com.mlink.base.controller;
+package com.currency.base.controller;
+import com.currency.base.entity.Material;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.mlink.base.common.core.Result;
-import com.mlink.base.common.core.ResultGenerator;
-import com.mlink.base.entity.Material;
-import com.mlink.base.service.MaterialService;
+import com.currency.base.common.core.Result;
+import com.currency.base.common.core.ResultGenerator;
+import com.currency.base.service.MaterialService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

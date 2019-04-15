@@ -1,4 +1,4 @@
-package com.mlink.base.common.configurer;
+package com.currency.base.common.configurer;
 
 import org.springframework.context.annotation.Configuration;
 

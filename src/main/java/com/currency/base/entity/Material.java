@@ -1,4 +1,4 @@
-package com.mlink.base.entity;
+package com.currency.base.entity;
 
 import java.util.Date;
 
