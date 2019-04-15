@@ -16,7 +16,7 @@ import java.util.List;
 
 
 /**
-* Created by fudazhi on 2018/10/24.
+* Created by yuehaibin on 2018/10/24.
 */
 @Api(value="Material ",tags={"Material"})
 @RestController

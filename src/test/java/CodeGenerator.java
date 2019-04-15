@@ -36,7 +36,7 @@ public class CodeGenerator {
     private static final String PACKAGE_PATH_SERVICE =  BASE_PACKAGE + ".service";
     private static final String PACKAGE_PATH_CONTROLLER =  BASE_PACKAGE + ".controller";
 
-    private static final String AUTHOR = "fudazhi";//@author
+    private static final String AUTHOR = "yuehaibin";//@author
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {

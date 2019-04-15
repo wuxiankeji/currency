@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 /**
-* Created by fudazhi on 2018/10/24.
+* Created by yuehaibin on 2018/10/24.
 * 注:  需要回归接口添加 注解 ：@Transactional(rollbackFor = Exception.class)
 */
 @Service
