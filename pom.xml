@@ -9,8 +9,8 @@
         <version>1.5.10.RELEASE</version>
     </parent>
 
-    <groupId>com.mlink.base</groupId>
-    <artifactId>com.mlink.base</artifactId>
+    <groupId>com.currency.base</groupId>
+    <artifactId>com.currency.base</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

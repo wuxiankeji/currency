@@ -29,7 +29,7 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，
    spring.datasource.password  ：数据库密码<br>
    spring.datasource.driver-class-name=com.mysql.jdbc.Driver<br>
 
-4. 配置代码生成工具 src/test/CodeGenerator.java。JDBC_URL：数据库url  JDBC_USERNAME ：数据库用户名  JDBC_PASSWORD ：数据库密码。 配置包名：BASE_PACKAGE ="com.mlink.base"<br>
+4. 配置代码生成工具 src/test/CodeGenerator.java。JDBC_URL：数据库url  JDBC_USERNAME ：数据库用户名  JDBC_PASSWORD ：数据库密码。 配置包名：BASE_PACKAGE ="com.currency.base"<br>
 5. 输入表名，运行```CodeGenerator.main()```方法，生成基础代码（可能需要刷新项目目录才会出来）<br>
 6. 根据业务在基础代码上进行扩展<br>
 7. 对开发环境配置文件```application-dev.properties```进行配置，启动项目，Have Fun！<br>
@@ -44,7 +44,7 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的脚手架，
 
 ## 部署
 
-- maven打包后会生成 com.mlink.base.zip 和 com.mlink.base.jar  传到服务器解压zip 运行start 即可运行。下次更新只需要更新com.mlink.base.jar即可。
+- maven打包后会生成 com.currency.base.zip 和 com.currency.base.jar  传到服务器解压zip 运行start 即可运行。下次更新只需要更新com.currency.base.jar即可。
 - 如修改包名请记得修改
     <groupId>com.mlink.video</groupId>
     <artifactId>com.mlink.video</artifactId>
