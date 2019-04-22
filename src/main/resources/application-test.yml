@@ -1,32 +1,33 @@
+#服务器配置
+server:
+  #端口
+  port: 8080
+  #启动压缩
+  compression:
+    enabled: true
+
 #spring配置
 spring:
-  profiles:
-    active: dev
-#    active: test
-#    active: prod
+  #应用配置
+  application:
+    #名称: base服务
+    name: base-service
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://xx.xxx.xxx.xxx:3306/xxx?useUnicode=true&characterEncoding=UTF-8
+    username: xxxx
+    password: xxxxx
+    driver-class-name: com.mysql.jdbc.Driver
+  #redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
   #404交给异常处理器处理
   mvc:
     throw-exception-if-no-handler-found: true
   resources:
     add-mappings: false
-
-#mybatis
-mybatis:
-  typeAliasesPackage: com.**.**.entity
-  mapperLocations: classpath:com/**/**/mapper/*.xml
-
-#日志级别
-logging:
-  level:
-    com:
-      mlink: debug
-
-#swagger
-pringfox:
-  documentation:
-    swagger:
-      v2:
-        path: /api-docs
 
 ##服务器发现注册配置
 #eureka:
@@ -67,5 +68,3 @@ pringfox:
 #        isolation:
 #          thread:
 #            timeoutInMilliseconds: 60000
-
-

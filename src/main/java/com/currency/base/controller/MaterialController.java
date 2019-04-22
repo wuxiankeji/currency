@@ -1,5 +1,6 @@
 package com.currency.base.controller;
 import com.currency.base.entity.Material;
+import com.currency.base.service.RedisService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.currency.base.common.core.Result;
@@ -27,6 +28,17 @@ public class MaterialController {
 
     @Autowired(required = false)
     private MaterialService materialService;
+
+    @Autowired(required = false)
+    private RedisService redisService;
+
+    @ApiOperation(value = "测试接口")
+    @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
+    @GetMapping("/test")
+    public Result test() {
+        redisService.testAdd ();
+        return ResultGenerator.genSuccessResult();
+    }
 
     @ApiOperation(value = "添加Material实体")
     @ApiResponses({ @ApiResponse(code = 200, message = "操作成功", response=Result.class)})
